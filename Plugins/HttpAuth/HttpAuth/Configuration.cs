@@ -20,6 +20,7 @@ namespace pGina.Plugin.HttpAuth
         public void SettingsToUi()
         {
             Loginserver_textBox.Text = Settings.Store.Loginserver;
+            Login_timeout_ms_num.Value = (int)Settings.Store.Logintimeout;
         }
 
         private void Form_Load(object sender, EventArgs e)
@@ -40,8 +41,8 @@ namespace pGina.Plugin.HttpAuth
                 MessageBox.Show(this, "Loginserver is empty", "Loginserver", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-
             Settings.Store.Loginserver = Loginserver_textBox.Text;
+            Settings.Store.Logintimeout = Convert.ToInt32(Login_timeout_ms_num.Value);
             return true;
         }
 

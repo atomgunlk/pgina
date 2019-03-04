@@ -26,7 +26,8 @@ namespace pGina.Plugin.HttpAuth
                 WebRequest request = WebRequest.Create(Settings.resolveSettings());
                 // Set the Method property of the request to POST.
                 request.Method = "POST";
-                request.Timeout = 2000;
+                // request.Timeout = 5000;
+                request.Timeout = Settings.loginTimeoutSettings();
                 // Create POST data and convert it to a byte array.
                 string postData = "{\"username\":\"" + uname + "\",\"password\":\"" + pwd + "\"}";
                 byte[] byteArray = Encoding.UTF8.GetBytes(postData);
