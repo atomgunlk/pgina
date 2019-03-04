@@ -34,71 +34,107 @@
             this.cancel_button = new System.Windows.Forms.Button();
             this.help_button = new System.Windows.Forms.Button();
             this.Description = new System.Windows.Forms.Label();
+            this.Login_timeout_ms_num = new System.Windows.Forms.NumericUpDown();
+            this.Login_timeout_ms_label = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.Login_timeout_ms_num)).BeginInit();
             this.SuspendLayout();
-            //
+            // 
             // Loginserver_label
-            //
+            // 
             this.Loginserver_label.AutoSize = true;
             this.Loginserver_label.Location = new System.Drawing.Point(12, 9);
             this.Loginserver_label.Name = "Loginserver_label";
             this.Loginserver_label.Size = new System.Drawing.Size(185, 13);
             this.Loginserver_label.TabIndex = 0;
             this.Loginserver_label.Text = "The Webserver address (Loginserver)";
-            //
+            // 
             // Loginserver_textBox
-            //
+            // 
             this.Loginserver_textBox.Location = new System.Drawing.Point(12, 25);
             this.Loginserver_textBox.Name = "Loginserver_textBox";
-            this.Loginserver_textBox.Size = new System.Drawing.Size(237, 20);
+            this.Loginserver_textBox.Size = new System.Drawing.Size(324, 20);
             this.Loginserver_textBox.TabIndex = 1;
-            //
+            // 
             // save_button
-            //
+            // 
             this.save_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.save_button.Location = new System.Drawing.Point(174, 142);
+            this.save_button.Location = new System.Drawing.Point(261, 160);
             this.save_button.Name = "save_button";
             this.save_button.Size = new System.Drawing.Size(75, 23);
             this.save_button.TabIndex = 5;
             this.save_button.Text = "Save";
             this.save_button.UseVisualStyleBackColor = true;
             this.save_button.Click += new System.EventHandler(this.Btn_Save);
-            //
+            // 
             // cancel_button
-            //
+            // 
             this.cancel_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cancel_button.Location = new System.Drawing.Point(93, 142);
+            this.cancel_button.Location = new System.Drawing.Point(180, 160);
             this.cancel_button.Name = "cancel_button";
             this.cancel_button.Size = new System.Drawing.Size(75, 23);
             this.cancel_button.TabIndex = 4;
             this.cancel_button.Text = "Cancel";
             this.cancel_button.UseVisualStyleBackColor = true;
             this.cancel_button.Click += new System.EventHandler(this.Btn_Cancel);
-            //
+            // 
             // help_button
-            //
+            // 
             this.help_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.help_button.Location = new System.Drawing.Point(12, 142);
+            this.help_button.Location = new System.Drawing.Point(99, 160);
             this.help_button.Name = "help_button";
             this.help_button.Size = new System.Drawing.Size(75, 23);
             this.help_button.TabIndex = 3;
             this.help_button.Text = "Help";
             this.help_button.UseVisualStyleBackColor = true;
             this.help_button.Click += new System.EventHandler(this.Btn_help);
-            //
+            // 
             // Description
-            //
+            // 
             this.Description.AutoSize = true;
-            this.Description.Location = new System.Drawing.Point(12, 58);
+            this.Description.Location = new System.Drawing.Point(12, 103);
             this.Description.Name = "Description";
             this.Description.Size = new System.Drawing.Size(89, 26);
             this.Description.TabIndex = 2;
             this.Description.Text = "Macros:\r\n  %u = UserName\r\n";
-            //
+            // 
+            // Login_timeout_ms_num
+            // 
+            this.Login_timeout_ms_num.Location = new System.Drawing.Point(12, 69);
+            this.Login_timeout_ms_num.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.Login_timeout_ms_num.Minimum = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
+            this.Login_timeout_ms_num.Name = "Login_timeout_ms_num";
+            this.Login_timeout_ms_num.Size = new System.Drawing.Size(89, 20);
+            this.Login_timeout_ms_num.TabIndex = 6;
+            this.Login_timeout_ms_num.Value = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
+            // 
+            // Login_timeout_ms_label
+            // 
+            this.Login_timeout_ms_label.AutoSize = true;
+            this.Login_timeout_ms_label.Location = new System.Drawing.Point(12, 53);
+            this.Login_timeout_ms_label.Name = "Login_timeout_ms_label";
+            this.Login_timeout_ms_label.Size = new System.Drawing.Size(67, 13);
+            this.Login_timeout_ms_label.TabIndex = 7;
+            this.Login_timeout_ms_label.Text = "Timeout (ms)";
+            // 
             // Configuration
-            //
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(261, 177);
+            this.ClientSize = new System.Drawing.Size(348, 195);
+            this.Controls.Add(this.Login_timeout_ms_label);
+            this.Controls.Add(this.Login_timeout_ms_num);
             this.Controls.Add(this.Description);
             this.Controls.Add(this.help_button);
             this.Controls.Add(this.cancel_button);
@@ -108,6 +144,7 @@
             this.Name = "Configuration";
             this.Text = "HttpAuth plugin Configuration";
             this.Load += new System.EventHandler(this.Form_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.Login_timeout_ms_num)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -121,5 +158,7 @@
         private System.Windows.Forms.Button cancel_button;
         private System.Windows.Forms.Button help_button;
         private System.Windows.Forms.Label Description;
+        private System.Windows.Forms.NumericUpDown Login_timeout_ms_num;
+        private System.Windows.Forms.Label Login_timeout_ms_label;
     }
 }

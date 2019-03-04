@@ -15,12 +15,14 @@ namespace pGina.Plugin.HttpAuth
         private static dynamic m_settings = new pGinaDynamicSettings(PluginImpl.PluginUuid);
         private static ILog m_logger = LogManager.GetLogger("HttpAuthSettings");
         private static string DEFAULT_URL = "https://pginaloginserver/login";
+		private static int DEFAULT_TIMEOUT_MS = 2000;
 
         static Settings()
         {
             try
             {
                 m_settings.SetDefault("Loginserver", @DEFAULT_URL);
+                m_settings.SetDefault("Logintimeout", 2000); // DEFAULT_TIMEOUT_MS
             }
             catch (Exception)
             {
@@ -73,7 +75,20 @@ namespace pGina.Plugin.HttpAuth
             }
             return loginServer;
         }
-
+        public static int loginTimeoutSettings()
+        {
+            int login_timeout = DEFAULT_TIMEOUT_MS;
+            try
+            {
+                login_timeout = m_settings.Logintimeout;
+            }
+            catch (KeyNotFoundException)
+            {
+                login_timeout = DEFAULT_TIMEOUT_MS;
+                m_logger.DebugFormat("default Login timeout: {0}", login_timeout);
+            }
+            return login_timeout;
+        }
         private static void _persist(string url) {
             try
             {
